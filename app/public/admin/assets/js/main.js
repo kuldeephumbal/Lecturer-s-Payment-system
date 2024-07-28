@@ -5,6 +5,50 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
+/**
+ * cource form input in table 
+ */
+document.getElementById('courseForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const title = document.getElementById('title').value;
+  const duration = document.getElementById('duration').value;
+  const description = document.getElementById('description').value;
+
+  const table = document.getElementById('courseTable').getElementsByTagName('tbody')[0];
+  const newRow = table.insertRow();
+
+  newRow.insertCell(0).innerHTML = table.rows.length;
+  newRow.insertCell(1).innerHTML = title;
+  newRow.insertCell(2).innerHTML = duration;
+  newRow.insertCell(3).innerHTML = description;
+
+  const courseActionCell = newRow.insertCell(4);
+  courseActionCell.innerHTML = `
+      <a href="#" title="Edit" onclick="courseEditRow(this)"><i class="fa-solid fa-pen-to-square me-3" style="color: #012970;"></i></a>
+      <a href="#" title="Delete" onclick="courseDeleteRow(this)"><i class="fa-solid fa-trash" style="color: #012970;"></i></a>
+  `;
+
+  document.getElementById('courseForm').reset();
+});
+
+function courseEditRow(link) {
+  const row = link.closest('tr');
+  const cells = row.getElementsByTagName('td');
+
+  document.getElementById('title').value = cells[1].innerHTML;
+  document.getElementById('duration').value = cells[2].innerHTML;
+  document.getElementById('description').value = cells[3].innerHTML;
+
+  row.remove();
+}
+
+function courseDeleteRow(link) {
+  const row = link.closest('tr');
+  row.remove();
+}
+
 (function() {
   "use strict";
 

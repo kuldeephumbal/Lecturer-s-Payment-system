@@ -27,60 +27,77 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
+        <img src="assets/img/logo.ico" alt="">
         <span class="d-none d-lg-block">Envision</span>
       </a>
       <i class="fa-solid fa-bars toggle-sidebar-btn"></i>
     </div>
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+        <li class="nav-item dropdown pe-3">
+          
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="profile.html">
+            <i class="fa-solid fa-circle-user me-2 fa-xl"></i>
+            <span>Kuldeep</span>
+          </a>
+        </li><!-- End Profile Nav -->
+      </ul>
+    </nav>
   </header><!-- End Header -->
-
+  
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
         <a class="nav-link " href="index.html">
-          <i class="fa-solid fa-table-cells-large"></i>
+          <i class="fa-solid fa-table"></i>
           <span>Dashboard</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="course.html">
           <i class="fa-solid fa-layer-group"></i>
           <span>Courses</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#">
-          <i class="fa-solid fa-chalkboard-user"></i>
-          <span>Professors</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#">
-          <i class="fa-solid fa-circle-play"></i>
-          <span>Lectures</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#">
-          <i class="fa-solid fa-book"></i>
-          <span>Subjects</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="batch.html">
           <i class="fa-solid fa-users-line"></i>
           <span>Batches</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="subject.html">
+          <i class="fa-solid fa-book"></i>
+          <span>Subjects</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="professor.html">
+          <i class="fa-solid fa-chalkboard-user"></i>
+          <span>Professors</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="lecture.html">
+          <i class="fa-solid fa-circle-play"></i>
+          <span>Lectures</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="report.html">
+          <i class="fa-solid fa-list"></i>
+          <span>Reports</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="payment.html">
           <i class="fa-regular fa-credit-card"></i>
           <span>Payments</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="login.html">
           <i class="fa-solid fa-right-from-bracket"></i>
           <span>Logout</span>
         </a>
@@ -91,22 +108,42 @@
   <!-- ======= Main ======= -->
   <main id="main" class="main">
     <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
+      <h1><i class="fa-solid fa-table"></i> Dashboard</h1>
     </div>
+    <hr>
+    <div class="container">
+      <!-- Your content here -->
+      <div class="row">
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">Recent Activity</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                          scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non
+                          consequat magna fermentum ac. Cras ut ultricies eros.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">Statistics</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                          scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non
+                          consequat magna fermentum ac. Cras ut ultricies eros.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
   </main><!-- End Main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
+  <!-- <footer id="footer" class="footer">
     <div class="copyright">
-      <!-- &copy; Copyright <strong><span>kuldeep</span></strong>. All Rights Reserved -->
+      &copy; Copyright <strong><span>kuldeep</span></strong>. All Rights Reserved
     </div>
-  </footer><!-- End Footer -->
+  </footer>End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>

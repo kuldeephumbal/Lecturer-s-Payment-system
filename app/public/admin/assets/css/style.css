@@ -1,14 +1,7 @@
-/**
-* Template Name: NiceAdmin
-* Updated: Jan 29 2024 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
 :root {
   scroll-behavior: smooth;
 }
@@ -25,7 +18,7 @@ a {
 }
 
 a:hover {
-  color: #717ff5;
+  color: #2E78BB;
   text-decoration: none;
 }
 
@@ -394,6 +387,11 @@ h6 {
   color: #012970;
 }
 
+
+
+/* Add other necessary styles */
+
+
 .header .search-bar {
   min-width: 360px;
   padding: 0 20px;
@@ -684,7 +682,7 @@ h6 {
   align-items: center;
   font-size: 15px;
   font-weight: 600;
-  color: #4154f1;
+  color: #012970;
   transition: 0.3;
   background: #f6f9ff;
   padding: 10px 15px;
@@ -694,7 +692,7 @@ h6 {
 .sidebar-nav .nav-link i {
   font-size: 16px;
   margin-right: 10px;
-  color: #4154f1;
+  color: #012970;
 }
 
 .sidebar-nav .nav-link.collapsed {
@@ -707,12 +705,12 @@ h6 {
 }
 
 .sidebar-nav .nav-link:hover {
-  color: #4154f1;
+  color: #1e82df;
   background: #f6f9ff;
 }
 
 .sidebar-nav .nav-link:hover i {
-  color: #4154f1;
+  color: #1e82df;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -750,11 +748,11 @@ h6 {
 
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-  color: #4154f1;
+  color: #012970;
 }
 
 .sidebar-nav .nav-content a.active i {
-  background-color: #4154f1;
+  background-color: #012970;
 }
 
 /*--------------------------------------------------------------
