@@ -15,7 +15,8 @@ export default function Batch() {
                         <form className="row g-3" id="batchForm">
                             <div className="col-md-6">
                                 <label htmlFor="batchName" className="form-label">Batch Name</label>
-                                <input type="text" className="form-control" id="batchName" name="batchName" placeholder="Enter batch name" required />
+                                <input type="text" className="form-control" id="batchName" name="batchName" placeholder="Enter batch 
+                                  name" required />
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="course" className="form-label">Course</label>
@@ -37,7 +38,8 @@ export default function Batch() {
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="classTime" className="form-label">Class Time</label>
-                                <input type="text" className="form-control" id="classTime" name="classTime" placeholder="Enter class time" required />
+                                <input type="text" className="form-control" id="classTime" name="classTime" placeholder="Enter class 
+                                 time" required />
                             </div>
                             <div>
                                 <button type="submit" className="btn btn-primary me-1">Submit</button>

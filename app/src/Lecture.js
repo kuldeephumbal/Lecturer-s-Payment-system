@@ -15,7 +15,8 @@ export default function Lecture() {
                         <form className="row g-3" id="lectureForm">
                             <div className="col-md-6">
                                 <label htmlFor="lecture" className="form-label">Lecture</label>
-                                <input type="text" className="form-control" id="lecture" name="lecture" placeholder="Enter lecture title" required />
+                                <input type="text" className="form-control" id="lecture" name="lecture" placeholder="Enter lecture title" 
+                                 required />
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="lectureDate" className="form-label">Lecture Date</label>
@@ -23,15 +24,18 @@ export default function Lecture() {
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="teacher" className="form-label">Teacher</label>
-                                <input type="text" className="form-control" id="teacher" name="teacher" placeholder="Enter teacher's name" required />
+                                <input type="text" className="form-control" id="teacher" name="teacher" placeholder="Enter teacher's 
+                                  name" required />
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="batch" className="form-label">Batch</label>
-                                <input type="text" className="form-control" id="batch" name="batch" placeholder="Enter batch name" required />
+                                <input type="text" className="form-control" id="batch" name="batch" placeholder="Enter batch name" 
+                                 required />
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="duration" className="form-label">Duration</label>
-                                <input type="text" className="form-control" id="duration" name="duration" placeholder="Enter lecture duration" 
+                                <input type="text" className="form-control" id="duration" name="duration" placeholder="Enter lecture 
+                                 duration" 
                                  required />
                             </div>
                             <div>

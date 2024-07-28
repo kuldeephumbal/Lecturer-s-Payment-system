@@ -22,7 +22,8 @@ export default function ForgotPassword() {
                                             <div className="col-12">
                                                 <label htmlFor="email" className="form-label">Email</label>
                                                 <div className="input-group has-validation">
-                                                    <input type="email" name="email" className="form-control" id="email" placeholder="Enter your email 
+                                                    <input type="email" name="email" className="form-control" id="email" 
+                                                     placeholder="Enter your email 
                                                      address" required />
                                                     <div className="invalid-feedback">Please enter your username.</div>
                                                 </div>

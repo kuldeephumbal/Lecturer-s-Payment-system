@@ -19,11 +19,13 @@ export default function Course() {
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="duration" className="form-label">Duration</label>
-                                <input type="text" className="form-control" id="duration" name="duration" placeholder="Enter duration" required />
+                                <input type="text" className="form-control" id="duration" name="duration" placeholder="Enter duration" 
+                                 required />
                             </div>
                             <div className="col-12">
                                 <label htmlFor="description" className="form-label">Description</label>
-                                <textarea name="description" id="description" className="form-control" placeholder="Enter description about course" 
+                                <textarea name="description" id="description" className="form-control" placeholder="Enter description 
+                                 about course" 
                                  required defaultValue={""} />
                             </div>
                             <div>

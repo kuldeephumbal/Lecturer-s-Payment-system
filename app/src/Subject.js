@@ -15,7 +15,8 @@ export default function Subject() {
                         <form className="row g-3" id="subjectForm">
                             <div className="col-md-6">
                                 <label htmlFor="subject" className="form-label">Subject</label>
-                                <input type="text" className="form-control" id="subject" name="subject" placeholder="Enter subject" required />
+                                <input type="text" className="form-control" id="subject" name="subject" placeholder="Enter subject" 
+                                 required />
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="course" className="form-label">Course</label>

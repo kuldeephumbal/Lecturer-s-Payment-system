@@ -18,7 +18,8 @@ export default function Profile() {
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="email" className="form-label">Email</label>
-                                    <input type="email" className="form-control" id="email" defaultValue="kuldeep@example.com" readOnly />
+                                    <input type="email" className="form-control" id="email" defaultValue="kuldeep@example.com" readOnly 
+                                     />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="mobile" className="form-label">Mobile</label>
