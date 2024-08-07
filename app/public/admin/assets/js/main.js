@@ -1,53 +1,24 @@
-/**
-* Template Name: NiceAdmin
-* Updated: Jan 29 2024 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/**
- * cource form input in table 
- */
-document.getElementById('courseForm').addEventListener('submit', function(event) {
-  event.preventDefault();
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
 
-  const title = document.getElementById('title').value;
-  const duration = document.getElementById('duration').value;
-  const description = document.getElementById('description').value;
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
 
-  const table = document.getElementById('courseTable').getElementsByTagName('tbody')[0];
-  const newRow = table.insertRow();
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
 
-  newRow.insertCell(0).innerHTML = table.rows.length;
-  newRow.insertCell(1).innerHTML = title;
-  newRow.insertCell(2).innerHTML = duration;
-  newRow.insertCell(3).innerHTML = description;
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
 
-  const courseActionCell = newRow.insertCell(4);
-  courseActionCell.innerHTML = `
-      <a href="#" title="Edit" onclick="courseEditRow(this)"><i class="fa-solid fa-pen-to-square me-3" style="color: #012970;"></i></a>
-      <a href="#" title="Delete" onclick="courseDeleteRow(this)"><i class="fa-solid fa-trash" style="color: #012970;"></i></a>
-  `;
-
-  document.getElementById('courseForm').reset();
-});
-
-function courseEditRow(link) {
-  const row = link.closest('tr');
-  const cells = row.getElementsByTagName('td');
-
-  document.getElementById('title').value = cells[1].innerHTML;
-  document.getElementById('duration').value = cells[2].innerHTML;
-  document.getElementById('description').value = cells[3].innerHTML;
-
-  row.remove();
-}
-
-function courseDeleteRow(link) {
-  const row = link.closest('tr');
-  row.remove();
-}
 
 (function() {
   "use strict";
