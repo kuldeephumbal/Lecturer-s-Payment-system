@@ -36,22 +36,6 @@ export default function Course() {
                     </div>
                 </div>
                 <hr />
-                <div className="table-responsive">
-                    <table className="table table-bordered table-hover" id="courseTable">
-                        <thead className="table-light">
-                            <tr>
-                                <th scope="col">Sr. No.</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Duration</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* Rows will be added here dynamically */}
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </main>
 
