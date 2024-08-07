@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 export default function ForgotPassword() {
     return (<>
-        <main>
+        <main style={{ "background-image": "url(admin/assets/img/bg-7.jpg)", "background-size": "cover", "background-position": "center", 
+             "background- attachment": "fixed" }}>
             <div className="container">
                 <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
                     <div className="container">
@@ -10,7 +11,7 @@ export default function ForgotPassword() {
                                 <div className="d-flex justify-content-center py-4">
                                     <Link to="#" className="logo d-flex align-items-center w-auto">
                                         <img src="admin/assets/img/logo.ico" alt="..." />
-                                        <span>Envision</span>
+                                        <span>EnvisionPay</span>
                                     </Link>
                                 </div>{/* End Logo */}
                                 <div className="card mb-3">

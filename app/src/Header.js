@@ -31,7 +31,7 @@ export default function Header() {
         <div className="d-flex align-items-center justify-content-between">
           <Link to="/dashboard" className="logo d-flex align-items-center">
             <img src="admin/assets/img/logo.ico" alt="Logo" />
-            <span>Envision</span>
+            <span>EnvisionPay</span>
           </Link>
           <i className="fa-solid fa-bars toggle-sidebar-btn" onClick={toggleSidebar} />
         </div>
