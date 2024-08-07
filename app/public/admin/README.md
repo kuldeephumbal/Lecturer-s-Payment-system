@@ -5,8 +5,8 @@ Tables
     batch (id,courseid,startdate,enddate,classtime)
     subject (id,courseid,title,rate)
     teacher (id,name,mobile,email,gender,qulification,experience,photo)
-    lecture(id,teacherid,subjectid,batchid,duration,amount,lecturedate,payoutid)
     payout(id,teacherid,orderdate,remarks,startdate,enddate)
+    lecture(id,teacherid,subjectid,batchid,duration,amount,lecturedate,payoutid)
     
 Module 
     1) course management  (works on course)
@@ -17,11 +17,11 @@ Module
         insert,update,delete,select
     4) teacher management (works on teacher)
         insert,update,delete,select
-    5) lecture management (works on lecture,teacher,batch)
-        insert,select
-    6) payout management (works on batch)
+    5) payout management (works on batch)
         generate of specific teacher between given date, genrate pay order 
         view on payout table 
+    6) lecture management (works on lecture,teacher,batch)
+        insert,select
     7) reports
         generate batch wise lecture detail between given date 
         generate batch wise lecture detail with total amount
