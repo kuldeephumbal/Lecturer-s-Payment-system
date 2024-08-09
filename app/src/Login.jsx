@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { showError, showMessage } from "./ToastMessage";
 import axios from "axios";
@@ -7,36 +7,31 @@ import axios from "axios";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === "email") {
-      setEmail(value);
-    } else if (name === "password") {
-      setPassword(value);
-    }
+    if (name === "email") setEmail(value); 
+    if (name === "password") setPassword(value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const apiAddress = "http://localhost:5000/login";
-    const response = await axios
-      .post(apiAddress, {
+    axios.post(apiAddress, {
         email: email,
         password: password,
-      })
-      .then((response) => {
+      }).then((response) => {
         const data = response.data;
         if (data.length > 0) {
+          showMessage("Login successful.");
           setTimeout(() => {
-            showMessage("Login successful.");
-            window.location.href = "/dashboard";
-          }, 3000);
+            navigate("/dashboard");
+          }, 2000);
         } else {
           showError("There was an error logging in!");
         }
-      })
-      .catch((error) => {
+      }).catch((error) => {
         showError("Invalid email or password");
       });
   };
