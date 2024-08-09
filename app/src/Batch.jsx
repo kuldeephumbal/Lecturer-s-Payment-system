@@ -1,54 +1,127 @@
 import Header from "./Header";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import { showError, showMessage } from "./ToastMessage";
+import axios from "axios";
+
 export default function Batch() {
-    return (<>
-    <Header/>
-        <main id="main" className="main">
-            <div className="pagetitle">
-                <h1><i className="fa-solid fa-users-line" /> Batches</h1>
+  const [batches, setBatches] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/batches")
+      .then((batchResponse) => {
+        setBatches(batchResponse.data);
+      })
+      .catch((error) => {
+        showError("The batches couldn't fetch");
+      });
+    axios
+      .get("http://localhost:5000/courses")
+      .then((courseResponse) => {
+        setCourses(courseResponse.data);
+      })
+      .catch((error) => {
+        showError("The courses couldn't fetch");
+      });
+  }, []);
+
+  const getCourseTitle = (courseId) => {
+    const course = courses.find((course) => course.id === courseId);
+    return course ? course.title : "Unknown Course";
+  };
+
+  const formatDate = (dateString) => {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-GB', options);
+  };
+
+  const formatTime = (timeString) => {
+    const [hours, minutes] = timeString.split(':');
+    const hour = parseInt(hours, 10);
+    const period = hour < 12 ? 'AM' : 'PM';
+    const formattedHour = hour % 12 || 12;
+    return `${formattedHour}:${minutes} ${period}`;
+  };
+
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this batch?")) {
+      axios
+        .delete(`http://localhost:5000/batches/${id}`)
+        .then(() => {
+          showMessage("Batch deleted successfully.");
+          setBatches(batches.filter((batch) => batch.id !== id));
+        })
+        .catch((error) => {
+          showError("The batch couldn't be deleted.");
+        });
+    }
+  };
+
+  const displayBatches = (item) => {
+    return (
+      <tr key={item.id}>
+        <td>{item.id}</td>
+        <td>{item.batch_name}</td>
+        <td>{getCourseTitle(item.course_id)}</td>
+        <td>{formatDate(item.start_date)}</td>
+        <td>{formatDate(item.end_date)}</td>
+        <td>{formatTime(item.class_time)}</td>
+        <td>
+          <Link title="Edit Batch" to={`/edit-batch/${item.id}`}>
+            <i className="fa-solid fa-pen-to-square me-3"></i>
+          </Link>
+          <span
+            title="Remove Batch"
+            className="text-danger"
+            onClick={() => handleDelete(item.id)}
+          >
+            <i className="fa-solid fa-trash"></i>
+          </span>
+        </td>
+      </tr>
+    );
+  };
+
+  return (
+    <>
+      <Header />
+      <main id="main" className="main">
+        <ToastContainer />
+        <div className="pagetitle d-flex align-items-center justify-content-between">
+          <h1>
+            <i className="fa-solid fa-layer-group" /> Batches
+          </h1>
+          <Link to="/add-batch" className="btn btn-primary">
+            <i className="fa-solid fa-plus"></i> Batch
+          </Link>
+        </div>
+        <div className="container mt-4">
+          <div className="card">
+            <div className="card-body">
+              <div className="table-responsive">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Batch Name</th>
+                      <th>Course</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Class Time</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>{batches.map((item) => displayBatches(item))}</tbody>
+                </table>
+              </div>
             </div>
-            <hr />
-            <div className="container mt-4">
-                <div className="card">
-                    <div className="card-body">
-                        <h5 className="card-title">Add Batch</h5>
-                        {/* Multi Columns Form */}
-                        <form className="row g-3" id="batchForm">
-                            <div className="col-md-6">
-                                <label htmlFor="batchName" className="form-label">Batch Name</label>
-                                <input type="text" className="form-control" id="batchName" name="batchName" placeholder="Enter batch 
-                                  name" required />
-                            </div>
-                            <div className="col-md-6">
-                                <label htmlFor="course" className="form-label">Course</label>
-                                <select className="form-select" id="course" name="course" required>
-                                    <option value>Select a course</option>
-                                    <option value="course1">Course 1</option>
-                                    <option value="course2">Course 2</option>
-                                    <option value="course3">Course 3</option>
-                                    {/* Add more options as needed */}
-                                </select>
-                            </div>
-                            <div className="col-md-6">
-                                <label htmlFor="startDate" className="form-label">Start Date</label>
-                                <input type="date" className="form-control" id="startDate" name="startDate" required />
-                            </div>
-                            <div className="col-md-6">
-                                <label htmlFor="endDate" className="form-label">End Date</label>
-                                <input type="date" className="form-control" id="endDate" name="endDate" required />
-                            </div>
-                            <div className="col-md-6">
-                                <label htmlFor="classTime" className="form-label">Class Time</label>
-                                <input type="text" className="form-control" id="classTime" name="classTime" placeholder="Enter class 
-                                 time" required />
-                            </div>
-                            <div>
-                                <button type="submit" className="btn btn-primary me-1">Submit</button>
-                                <button type="reset" className="btn btn-secondary">Reset</button>
-                            </div>
-                        </form>{/* End Multi Columns Form */}
-                    </div>
-                </div>
-            </div>
-        </main>
-    </>);
+          </div>
+        </div>
+      </main>
+    </>
+  );
 }
