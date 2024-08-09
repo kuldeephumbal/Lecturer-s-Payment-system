@@ -2,9 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './Login';
-import ForgotPassword from './ForgotPassword';
-import Batch from './Batch';
 import Course from './Course';
+import AddCourse from './AddCourse';
+import EditCourse from './EditCourse';
+import Batch from './Batch';
+import AddBatch from './AddBatch';
+import EditBatch from './EditBatch';
+import ForgotPassword from './ForgotPassword';
 import Dashboard from './Dashboard';
 import Lecture from './Lecture';
 import Payment from './Payment';
@@ -21,8 +25,12 @@ function ROUTES(){
             <Routes>
                 <Route index path='/' element={<Login />} />
                 <Route index path='/forgot-password' element={<ForgotPassword />} />
-                <Route index path='/batch' element={<Batch />} />
                 <Route index path='/course' element={<Course />} />
+                <Route index path='/add-course' element={<AddCourse />} />
+                <Route index path='/edit-course/:id' element={<EditCourse />} />
+                <Route index path='/batch' element={<Batch />} />
+                <Route index path='/add-batch' element={<AddBatch />} />
+                <Route index path='/edit-batch/:id' element={<EditBatch />} />
                 <Route index path='/dashboard' element={<Dashboard />} />
                 <Route index path='/payment' element={<Payment />} />
                 <Route index path='/lecture' element={<Lecture />} />
