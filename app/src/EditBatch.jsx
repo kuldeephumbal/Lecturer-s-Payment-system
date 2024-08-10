@@ -72,7 +72,7 @@ export default function EditBatch() {
       <main id="main" className="main">
         <div className="pagetitle d-flex align-items-center justify-content-between">
           <h1>
-            <i className="fa-solid fa-layer-group" /> Batches
+          <i className="fa-solid fa-users-line" /> Batches
           </h1>
           <Link to="/batch" className="btn btn-primary">
             <i className="fa-solid fa-chevron-left"></i> Back

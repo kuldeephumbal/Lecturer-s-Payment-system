@@ -1,10 +1,10 @@
 import Header from "./Header";
 import axios from "axios";
+import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import { showMessage, showError } from "./ToastMessage";
-import moment from "moment";
 
 export default function AddBatch() {
   const [courses, setCourses] = useState([]);
@@ -62,7 +62,7 @@ export default function AddBatch() {
       <main id="main" className="main">
         <div className="pagetitle d-flex align-items-center justify-content-between">
           <h1>
-            <i className="fa-solid fa-layer-group" /> Batches
+          <i className="fa-solid fa-users-line" /> Batches
           </h1>
           <Link to="/batch" className="btn btn-primary">
             <i className="fa-solid fa-chevron-left"></i> Back

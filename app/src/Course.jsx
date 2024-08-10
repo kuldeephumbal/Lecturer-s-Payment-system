@@ -1,9 +1,9 @@
 import Header from "./Header";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import { showError, showMessage } from "./ToastMessage";
-import axios from "axios";
 
 export default function Course() {
   const [courses, setCourses] = useState([]);
@@ -35,8 +35,7 @@ export default function Course() {
           <span
             title="Remove Course"
             className="text-danger"
-            onClick={() => handleDelete(item.id)}
-          >
+            onClick={() => handleDelete(item.id)}>
             <i className="fa-solid fa-trash pb-2"></i>
           </span>
         </td>
@@ -71,7 +70,7 @@ export default function Course() {
             <i className="fa-solid fa-layer-group" /> Courses
           </h1>
           <Link to="/add-course" className="btn btn-primary">
-            <i className="fa-solid fa-plus"></i> Courses
+            <i className="fa-solid fa-plus"></i> Course
           </Link>
         </div>
         <div className="container mt-4">

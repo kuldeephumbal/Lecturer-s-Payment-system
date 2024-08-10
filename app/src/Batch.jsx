@@ -1,14 +1,13 @@
 import Header from "./Header";
-import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import { showError, showMessage } from "./ToastMessage";
-import axios from "axios";
 
 export default function Batch() {
   const [batches, setBatches] = useState([]);
   const [courses, setCourses] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -93,7 +92,7 @@ export default function Batch() {
         <ToastContainer />
         <div className="pagetitle d-flex align-items-center justify-content-between">
           <h1>
-            <i className="fa-solid fa-layer-group" /> Batches
+          <i className="fa-solid fa-users-line" /> Batches
           </h1>
           <Link to="/add-batch" className="btn btn-primary">
             <i className="fa-solid fa-plus"></i> Batch

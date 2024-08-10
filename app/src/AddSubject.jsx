@@ -55,7 +55,7 @@ export default function AddSubject() {
         <ToastContainer />
         <div className="pagetitle d-flex align-items-center justify-content-between">
           <h1>
-            <i className="fa-solid fa-layer-group" /> Add Subject
+          <i className="fa-solid fa-book" /> Subject
           </h1>
           <Link to="/subject" className="btn btn-primary">
             <i className="fa-solid fa-chevron-left"></i> Back
@@ -64,7 +64,7 @@ export default function AddSubject() {
         <div className="container mt-4">
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">Add New Subject</h5>
+              <h5 className="card-title">Add Subject</h5>
               <form className="row g-3" onSubmit={handleSubmit}>
                 <div className="col-md-6">
                   <label htmlFor="course" className="form-label">

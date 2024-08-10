@@ -1,75 +1,109 @@
 import Header from "./Header";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import { showError, showMessage } from "./ToastMessage";
+
 export default function Professor() {
-    return (<>
-        <Header />
-        <main id="main" className="main">
-            <div className="pagetitle">
-                <h1><i className="fa-solid fa-chalkboard-user" /> Professors</h1>
-            </div>
-            <hr />
-            <div className="container mt-4">
-                <div className="card">
-                    <div className="card-body">
-                        <h5 className="card-title">Add Professor</h5>
-                        {/* Multi Columns Form */}
-                        <form className="row g-3" id="professorForm">
-                            <div className="col-md-6">
-                                <label htmlFor="name" className="form-label">Name</label>
-                                <input type="text" className="form-control" id="name" name="name" placeholder="Enter your name" required 
-                                 />
+    const [professors, setProfessors] = useState([]);
+
+    useEffect(() => {
+        const apiAddress = "http://localhost:5000/professors";
+        axios
+            .get(apiAddress)
+            .then((response) => {
+                setProfessors(response.data);
+            })
+            .catch((error) => {
+                showError("The professors couldn't fetch");
+            });
+    }, []);
+
+    let displayProfessors = (item) => {
+        return (
+            <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>
+                    <img src={item.photo} alt={item.name} style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
+                </td>
+                <td>{item.name}</td>
+                <td>{item.mobile}</td>
+                <td>{item.email}</td>
+                <td>{item.gender}</td>
+                <td>{item.qualification}</td>
+                <td>{item.experience}</td>
+                <td>
+                    <Link title="edit Professor" to={`/edit-professor/${item.id}`}>
+                        <i className="fa-solid fa-pen-to-square me-3"></i>
+                    </Link>
+                    <span
+                        title="Remove Professor"
+                        className="text-danger"
+                        onClick={() => handleDelete(item.id)}
+                    >
+                        <i className="fa-solid fa-trash pb-2"></i>
+                    </span>
+                </td>
+            </tr>
+        );
+    };
+
+    const handleDelete = (id) => {
+        if (window.confirm("Are you sure you want to delete this professor?")) {
+            const apiAddress = `http://localhost:5000/professors/${id}`;
+            axios
+                .delete(apiAddress)
+                .then((response) => {
+                    if (response.status === 200) {
+                        showMessage("Professor deleted successfully");
+                        setProfessors(professors.filter((professor) => professor.id !== id));
+                    }
+                })
+                .catch((error) => {
+                    showError("Failed to delete professor");
+                });
+        }
+    };
+
+    return (
+        <>
+            <Header />
+            <main id="main" className="main">
+                <ToastContainer />
+                <div className="pagetitle d-flex align-items-center justify-content-between">
+                    <h1>
+                    <i className="fa-solid fa-chalkboard-user" /> Professors
+                    </h1>
+                    <Link to="/add-professor" className="btn btn-primary">
+                        <i className="fa-solid fa-plus"></i> Professor
+                    </Link>
+                </div>
+                <div className="container mt-4">
+                    <div className="card">
+                        <div className="card-body">
+                            <div className="table-responsive">
+                                <table className="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Mobile</th>
+                                            <th>Email</th>
+                                            <th>Gender</th>
+                                            <th>Qualification</th>
+                                            <th>Experience</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>{professors.map((item) => displayProfessors(item))}</tbody>
+                                </table>
                             </div>
-                            <div className="col-md-6">
-                                <label htmlFor="email" className="form-label">Email</label>
-                                <input type="email" className="form-control" id="email" name="email" placeholder="Enter you email 
-                                address" required />
-                            </div>
-                            <div className="col-md-4">
-                                <label htmlFor="mobile" className="form-label">Mobile</label>
-                                <input type="number" className="form-control" id="mobile" name="mobile" placeholder="Enter your mobile 
-                                 number" 
-                                required />
-                            </div>
-                            <div className="col-md-4">
-                                <label htmlFor="qualification" className="form-label">Qualification</label>
-                                <input type="text" className="form-control" id="qualification" name="qualification" placeholder="Enter 
-                                 your qualification" required />
-                            </div>
-                            <div className="col-md-4">
-                                <legend className="col-form-label col-sm-2 pt-0">Gender</legend>
-                                <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="gender" id="male" defaultValue="male" 
-                                     defaultChecked />
-                                    <label className="form-check-label" htmlFor="male">
-                                        Male
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="gender" id="female" defaultValue="female" />
-                                    <label className="form-check-label" htmlFor="female">
-                                        Female
-                                    </label>
-                                </div>
-                            </div>
-                            <div className="col-md-4">
-                                <label htmlFor="photo" className="form-label">Photo</label>
-                                <input type="file" name="photo" id="photo" required className="form-control" />
-                            </div>
-                            <div className="col-md-8">
-                                <label htmlFor="experience" className="form-label">Experience</label>
-                                <textarea name="experience" id="experience" className="form-control" placeholder="Enter your experience" 
-                                 required defaultValue={""} />
-                            </div>
-                            <div>
-                                <button type="submit" className="btn btn-primary me-1">Submit</button>
-                                <button type="reset" className="btn btn-secondary">Reset</button>
-                            </div>
-                        </form>{/* End Multi Columns Form */}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
-
-
-
-    </>);
+            </main>
+        </>
+    );
 }

@@ -8,39 +8,48 @@ import EditCourse from './EditCourse';
 import Batch from './Batch';
 import AddBatch from './AddBatch';
 import EditBatch from './EditBatch';
-import ForgotPassword from './ForgotPassword';
 import Dashboard from './Dashboard';
 import Lecture from './Lecture';
+import AddLecture from './AddLecture';
 import Payment from './Payment';
+import AddPayment from './AddPayment';
 import Professor from './Professor';
-import Profile from './Profile';
+import AddProfessor from './AddProfessor';
+import EditProfessor from './EditProfessor';
 import Report from './Report';
 import Subject from './Subject';
+import AddSubject from './AddSubject';
+import EditSubject from './EditSubject';
 import Logout from './Logout';
 
 
-function ROUTES(){
-    return(
+function ROUTES() {
+    return (
         <BrowserRouter>
             <Routes>
                 <Route index path='/' element={<Login />} />
-                <Route index path='/forgot-password' element={<ForgotPassword />} />
-                <Route index path='/course' element={<Course />} />
-                <Route index path='/add-course' element={<AddCourse />} />
-                <Route index path='/edit-course/:id' element={<EditCourse />} />
-                <Route index path='/batch' element={<Batch />} />
-                <Route index path='/add-batch' element={<AddBatch />} />
-                <Route index path='/edit-batch/:id' element={<EditBatch />} />
-                <Route index path='/dashboard' element={<Dashboard />} />
-                <Route index path='/payment' element={<Payment />} />
-                <Route index path='/lecture' element={<Lecture />} />
-                <Route index path='/professor' element={<Professor />} />
-                <Route index path='/profile' element={<Profile />} />
-                <Route index path='/Report' element={<Report />} />
-                <Route index path='/subject' element={<Subject />} />
-                <Route index path='/logout' element={<Logout />} />
+                <Route path='/course' element={<Course />} />
+                <Route path='/add-course' element={<AddCourse />} />
+                <Route path='/edit-course/:id' element={<EditCourse />} />
+                <Route path='/batch' element={<Batch />} />
+                <Route path='/add-batch' element={<AddBatch />} />
+                <Route path='/edit-batch/:id' element={<EditBatch />} />
+                <Route path='/dashboard' element={<Dashboard />} />
+                <Route path='/payment' element={<Payment />} />
+                <Route path='/add-payment' element={<AddPayment />} />
+                <Route path='/lecture' element={<Lecture />} />
+                <Route path='/add-lecture' element={<AddLecture />} />
+                <Route path='/professor' element={<Professor />} />
+                <Route path='/add-professor' element={<AddProfessor />} />
+                <Route path='/edit-professor/:id' element={<EditProfessor />} />
+                <Route path='/report' element={<Report />} />
+                <Route path='/subject' element={<Subject />} /> 
+                <Route path='/add-subject' element={<AddSubject />} />
+                <Route path='/edit-subject/:id' element={<EditSubject />} />
+                <Route path='/logout' element={<Logout />} />
             </Routes>
         </BrowserRouter>
+
     );
 }
 

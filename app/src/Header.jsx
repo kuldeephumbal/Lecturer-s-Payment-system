@@ -35,19 +35,6 @@ export default function Header() {
           </Link>
           <i className="fa-solid fa-bars toggle-sidebar-btn" onClick={toggleSidebar} />
         </div>
-        <nav className="header-nav ms-auto">
-          <ul className="d-flex align-items-center">
-            <li className="nav-item dropdown pe-3">
-              <Link
-                className="nav-link nav-profile d-flex align-items-center pe-0"
-                to="/profile"
-                onClick={closeSidebarOnLinkClick} >
-                <i className="fa-solid fa-circle-user me-2 fa-xl" />
-                <span>Kuldeep</span>
-              </Link>
-            </li>
-          </ul>
-        </nav>
       </header>
       <aside id="sidebar" className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <ul className="sidebar-nav" id="sidebar-nav">
@@ -82,6 +69,12 @@ export default function Header() {
             </Link>
           </li>
           <li className="nav-item">
+            <Link className="nav-link" to="/payment" onClick={closeSidebarOnLinkClick}>
+              <i className="fa-regular fa-credit-card" />
+              <span>Payments</span>
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link className="nav-link" to="/lecture" onClick={closeSidebarOnLinkClick}>
               <i className="fa-solid fa-circle-play" />
               <span>Lectures</span>
@@ -91,12 +84,6 @@ export default function Header() {
             <Link className="nav-link" to="/report" onClick={closeSidebarOnLinkClick}>
               <i className="fa-solid fa-list" />
               <span>Reports</span>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/payment" onClick={closeSidebarOnLinkClick}>
-              <i className="fa-regular fa-credit-card" />
-              <span>Payments</span>
             </Link>
           </li>
           <li className="nav-item">

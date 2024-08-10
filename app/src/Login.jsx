@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { showError, showMessage } from "./ToastMessage";
 import axios from "axios";
@@ -52,13 +52,10 @@ export default function Login() {
             <div className="row justify-content-center">
               <div className="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
                 <div className="d-flex justify-content-center py-4">
-                  <Link
-                    to="#"
-                    className="logo d-flex align-items-center w-auto"
-                  >
+                  <div className="logo d-flex align-items-center w-auto">
                     <img src="admin/assets/img/logo.ico" alt="..." />
                     <span>EnvisionPay</span>
-                  </Link>
+                  </div>
                 </div>
                 <div className="card mb-3">
                   <div className="card-body">
@@ -91,7 +88,7 @@ export default function Login() {
                           </div>
                         </div>
                       </div>
-                      <div className="col-12">
+                      <div className="col-12 mb-3">
                         <label htmlFor="yourPassword" className="form-label">
                           Password
                         </label>
@@ -109,10 +106,7 @@ export default function Login() {
                           Please enter your password!
                         </div>
                       </div>
-                      <div className="text-start">
-                        <Link to="/forgot-password">Forgot Password?</Link>
-                      </div>
-                      <div className="col-12">
+                      <div className="col-12 ">
                         <button className="btn btn-primary w-100" type="submit">
                           Login
                         </button>

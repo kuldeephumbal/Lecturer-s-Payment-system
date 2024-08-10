@@ -67,7 +67,7 @@ export default function EditSubject() {
         <ToastContainer />
         <div className="pagetitle d-flex align-items-center justify-content-between">
           <h1>
-            <i className="fa-solid fa-layer-group" /> Edit Subject
+          <i className="fa-solid fa-book" /> Subject
           </h1>
           <Link to="/subject" className="btn btn-primary">
             <i className="fa-solid fa-chevron-left"></i> Back
